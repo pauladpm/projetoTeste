@@ -1,4 +1,4 @@
 <template lang="pug">
   .background
-    | background
+    | background teste
 </template>
