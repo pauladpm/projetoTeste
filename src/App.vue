@@ -12,6 +12,6 @@ export default {
 
 <style>
 #app {
-  font-family: monospace;
+  font-family: 'Titillium Web', sans-serif;
 }
 </style>

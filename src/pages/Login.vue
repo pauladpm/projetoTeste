@@ -33,10 +33,11 @@ export default {
 <style scoped>
 
 .login-box {
-  background-color: rgb(216, 233, 233);
+  background-color: white;
 }
 .title {
   text-align: center;
+  font-family: inherit;
   font-size: 130%;
 }
 .button {
@@ -48,7 +49,7 @@ export default {
   padding: 5px;
 }
 .button:hover {
-  background: rgb(157, 247, 247, 0.6);
+  background: rgba(216, 255, 255, 0.6);
 }
 .button:focus {
   background-color:rgb(215, 255, 255);
