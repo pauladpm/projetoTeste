@@ -3,15 +3,19 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import 'vue-awesome/icons'
-import Icon from 'vue-awesome/components/Icon.vue'
 
-Vue.config.productionTip = false
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
+library.add(faCoffee)
+
+Vue.component('awesome-icon', FontAwesomeIcon)
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
-  components: { App, Icon },
+  components: { App },
   template: '<App/>'
 })

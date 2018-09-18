@@ -8,6 +8,7 @@
         Input.input(type='text', placeholder="Usuário*")
         Input.input(type='password', placeholder="Senha*")
       Button.button(slot='footer', v-on:click='teste()', :label="'Entrar'")
+        Icon(slot='icon', icon="'coffee'")
 </template>
 
 <script>
@@ -15,6 +16,7 @@ import Background from '@/components/Background'
 import LoginBox from '@/components/LoginBox'
 import Input from '@/components/Input'
 import Button from '@/components/Button'
+import Icon from '@/components/Icon'
 
 export default {
   name: 'Login',
@@ -22,7 +24,8 @@ export default {
     LoginBox,
     Background,
     Input,
-    Button
+    Button,
+    Icon
   },
   methods: {
     testo () {
