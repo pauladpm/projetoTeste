@@ -8,7 +8,7 @@
         Input.input(type='text', placeholder="Usuário*")
         Input.input(type='password', placeholder="Senha*")
       Button.button(slot='footer', v-on:click='teste()', :label="'Entrar'")
-        Icon(slot='icon', icon="'coffee'")
+        Icon(slot='icon', :name="'coffee'")
 </template>
 
 <script>

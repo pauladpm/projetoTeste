@@ -1,5 +1,5 @@
 <template lang="pug">
-    awesome-icon.icon(icon="name")
+  awesome-icon.icon(:icon='name')
 </template>
 
 <script>
@@ -17,7 +17,7 @@ export default {
 @import "@/assets/styles/style.scss";
 
 .icon {
-  color: red;
+  color: rgb(63, 63, 63);
 }
 .icon:hover {
   background: rgba(216, 255, 255, 0.6);
