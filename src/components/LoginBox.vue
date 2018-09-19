@@ -14,9 +14,11 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+  @import "@/assets/styles/style.scss";
+
   .loginBox {
-    border: 1px solid rgb(142, 199, 199);
+    border: 1px solid $border-color;
     border-radius: 3px;
     height: 350px;
     padding: 5px;
