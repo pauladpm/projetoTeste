@@ -1,7 +1,7 @@
 <template lang="pug">
-  button.button
+  button.button(:class='classStyle')
     | {{ label }}
-    slot.icon(name='icon')
+    slot(name='icon')
 </template>
 
 <script>
@@ -9,7 +9,17 @@ export default {
   props: {
     label: {
       type: String,
-      required: true
+      required: false
+    },
+    kind: {
+      type: String,
+      required: false,
+      default: 'simple'
+    }
+  },
+  computed: {
+    classStyle () {
+      return this.kind
     }
   }
 }
@@ -21,18 +31,28 @@ export default {
 .button {
   font-family: inherit;
   background: rgb(255, 255, 255);
-  border: 1.5px solid $border-color;
-  border-radius: 3px;
-  margin: 10px;
-  padding: 5px;
+  border: $border-size solid $border-color;
+  margin: 0.2px;
+  padding: $padding-space;
+}
+.simple {
+  border-radius: $border-radius;
+}
+.middle {
+  border-radius: 0px;
+}
+.right {
+  border-bottom-right-radius: $border-radius;
+  border-top-right-radius: $border-radius;
+}
+.left {
+  border-bottom-left-radius: $border-radius;
+  border-top-left-radius: $border-radius;
 }
 .button:hover {
   background: rgba(216, 255, 255, 0.6);
 }
 .button:focus {
-  background-color:rgb(215, 255, 255);
-}
-.icon {
-  color: red;
+  background-color:rgb(224, 53, 110);
 }
 </style>
