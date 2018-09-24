@@ -8,9 +8,9 @@
 .input {
   font-family: inherit;
   background: rgba(255, 255, 255, 0.8);
-  border: 1.5px solid $border-color;
-  border-radius: 2px;
+  border: $border-size solid $border-color;
+  border-radius: $border-size;
   margin: 10px 0 10px 0;
-  padding: 5px;
+  padding: $padding-space;
 }
 </style>

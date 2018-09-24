@@ -7,7 +7,11 @@
       form.form(slot='body')
         Input.input(type='text', placeholder="Usuário*")
         Input.input(type='password', placeholder="Senha*")
-      Button.button(slot='footer', v-on:click='teste()', :label="'Entrar'")
+      Button.button(slot='footer', v-on:click='teste()', :label="'Entrar'", :kind="'left'")
+        Icon(slot='icon', :name="'coffee'")
+      Button.button(slot='footer', v-on:click='teste()', :label="'b'", :kind="'unique'")
+        Icon(slot='icon', :name="'coffee'")
+      Button.button(slot='footer', v-on:click='teste()', :label="'a'", :kind="'right'")
         Icon(slot='icon', :name="'coffee'")
 </template>
 
@@ -40,6 +44,8 @@ export default {
 
 .login-box {
   background-color: white;
+  height: 300px;
+  width: 300px;
 }
 .title {
   text-align: center;
@@ -47,6 +53,14 @@ export default {
   font-size: 130%;
 }
 .form {
+/*   float: right;
+  left: -50%;
+  position: relative; */
   text-align: center;
+}
+.input {
+/*   display: block;
+  left: 50%;
+  position: relative; */
 }
 </style>

@@ -18,11 +18,9 @@ export default {
   @import "@/assets/styles/style.scss";
 
   .loginBox {
-    border: 1px solid $border-color;
-    border-radius: 3px;
-    height: 350px;
-    padding: 5px;
-    width: 250px;
+    border: $border-size solid $border-color;
+    border-radius: $border-radius;
+    padding: $padding-space;
   }
 
   .header {
@@ -30,7 +28,7 @@ export default {
   }
 
   .body {
-    height:50%;
+    height: 50%;
   }
 
   .footer {
