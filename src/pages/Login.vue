@@ -1,6 +1,6 @@
 <template lang="pug">
   .login
-    LoginBox.login-box
+    FlyerBox.flyer-box
       Button.button(slot='header', v-on:click='teste()' :label="'Cadastro'")
       .title(slot='body-title')
         |Bem vindo(a)
@@ -16,21 +16,9 @@
 </template>
 
 <script>
-import Background from '@/components/Background'
-import LoginBox from '@/components/LoginBox'
-import Input from '@/components/Input'
-import Button from '@/components/Button'
-import Icon from '@/components/Icon'
 
 export default {
   name: 'Login',
-  components: {
-    LoginBox,
-    Background,
-    Input,
-    Button,
-    Icon
-  },
   methods: {
     testo () {
       alert('ss ')
@@ -42,7 +30,7 @@ export default {
 <style lang="scss" scoped>
 @import "@/assets/styles/style.scss";
 
-.login-box {
+.flyer-box {
   background-color: white;
   height: 300px;
   width: 300px;
