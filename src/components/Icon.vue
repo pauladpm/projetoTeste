@@ -3,10 +3,11 @@
 </template>
 
 <script>
+  /* how to use: Icon(:name="['far','angry']")  or  Icon(:name="'angry'")*/
 export default {
   props: {
     name: {
-      type: String,
+      type: [String, Array],
       required: true
     }
   }
