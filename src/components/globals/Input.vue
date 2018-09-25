@@ -1,6 +1,12 @@
 <template lang="pug">
   input.input
 </template>
+<script>
+
+export default {
+  name: 'Input'
+}
+</script>
 
 <style lang="scss" scoped>
 @import "@/assets/styles/style.scss";

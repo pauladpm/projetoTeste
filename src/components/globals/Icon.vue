@@ -6,6 +6,7 @@
 // how to use: Icon(:name="['far','angry']")  or  Icon(:name="'angry'")
 
 export default {
+  name: 'Icon',
   props: {
     name: {
       type: [String, Array],

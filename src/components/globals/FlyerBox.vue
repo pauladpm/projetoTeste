@@ -10,7 +10,9 @@
 </template>
 
 <script>
-
+export default {
+  name: 'FlyerBox'
+}
 </script>
 
 <style lang="scss" scoped>
