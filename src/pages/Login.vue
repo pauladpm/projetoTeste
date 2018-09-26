@@ -1,18 +1,30 @@
 <template lang="pug">
   .login
     FlyerBox.flyer-box
-      Button.button(slot='header', v-on:click='teste()' :label="'Cadastro'")
-      .title(slot='body-title')
+      .header(slot='header')
+        Button.header-button(
+          v-on:click='teste()',
+          :label="'Logar-se'",
+          :kind="'left'")
+        Button.header-button(
+          v-on:click='teste()',
+          :label="'Inscrever-se'",
+          :kind="'right'")
+      .body-title(slot='body-title')
         |Bem vindo(a)
-      form.form(slot='body')
-        Input.input(type='text', placeholder="Usuário*")
-        Input.input(type='password', placeholder="Senha*")
-      Button.button(slot='footer', v-on:click='teste()', :label="'Entrar'", :kind="'left'")
-        Icon(slot='icon', :name="'coffee'")
-      Button.button(slot='footer', v-on:click='teste()', :kind="'unique'")
-        Icon(slot='icon', :name="['far','angry']")
-      Button.button(slot='footer', v-on:click='teste()', :label="'cancelar'", :kind="'right'")
-        Icon(slot='icon', :name="'flag'", class="'far-flag'")
+      .body(slot='body')
+        form.form
+          Input.input(
+            type='text',
+            placeholder="Usuário*")
+          Input.input(
+            type='password',
+            placeholder="Senha*")
+      .footer(slot='footer')
+        Button(
+          v-on:click='teste()',
+          :label="'ENTRAR'")
+          Icon(slot='icon', :name="'sign-in-alt'")
 </template>
 
 <script>
@@ -32,13 +44,23 @@ export default {
 
 .flyer-box {
   background-color: white;
-  height: 300px;
+  height: 350px;
   width: 300px;
 }
-.title {
+.login {
+  text-align: center;
+}
+.body-title {
   text-align: center;
   font-family: 'Titillium Web', sans-serif;
   font-size: 130%;
+}
+.header {
+  display: block;
+}
+.header-button{
+  width: 40%;
+  height: 200%;
 }
 .form {
 /*   float: right;

@@ -20,6 +20,6 @@ export default {
 @import "@/assets/styles/style.scss";
 
 .icon {
-  color: rgb(63, 63, 63);
+  padding: 0 $padding-space/2;
 }
 </style>
