@@ -6,6 +6,7 @@
 // how to use: Icon(:name="['far','angry']")  or  Icon(:name="'angry'")
 
 export default {
+  name: 'Icon',
   props: {
     name: {
       type: [String, Array],
@@ -19,6 +20,6 @@ export default {
 @import "@/assets/styles/style.scss";
 
 .icon {
-  color: rgb(63, 63, 63);
+  padding: 0 $padding-space/2;
 }
 </style>

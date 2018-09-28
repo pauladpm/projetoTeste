@@ -6,6 +6,7 @@
 
 <script>
 export default {
+  name: 'Button',
   props: {
     label: {
       type: String,
@@ -31,7 +32,7 @@ export default {
 .button {
   font-family: inherit;
   background: rgb(255, 255, 255);
-  border: $border-size solid $border-color;
+  border: $border-size/2 solid $border-color;
   margin: 0.2px;
   padding: $padding-space;
 }
@@ -52,7 +53,7 @@ export default {
 .button:hover {
   background: rgba(216, 255, 255, 0.6);
 }
-.button:focus {
+/* .button:focus {
   background-color:rgb(224, 53, 110);
-}
+} */
 </style>

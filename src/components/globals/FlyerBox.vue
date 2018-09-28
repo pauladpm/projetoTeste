@@ -1,5 +1,5 @@
 <template lang="pug">
-  .loginBox
+  .flyerBox
     .header
       slot(name='header')
     .body
@@ -11,13 +11,14 @@
 
 <script>
 export default {
+  name: 'FlyerBox'
 }
 </script>
 
 <style lang="scss" scoped>
   @import "@/assets/styles/style.scss";
 
-  .loginBox {
+  .flyerBox {
     border: $border-size solid $border-color;
     border-radius: $border-radius;
     padding: $padding-space;

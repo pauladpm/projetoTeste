@@ -1,39 +1,62 @@
 <template lang="pug">
   .login
-    LoginBox.login-box
-      Button.button(slot='header', v-on:click='teste()' :label="'Cadastro'")
-      .title(slot='body-title')
-        |Bem vindo(a)
-      form.form(slot='body')
-        Input.input(type='text', placeholder="Usuário*")
-        Input.input(type='password', placeholder="Senha*")
-      Button.button(slot='footer', v-on:click='teste()', :label="'Entrar'", :kind="'left'")
-        Icon(slot='icon', :name="'coffee'")
-      Button.button(slot='footer', v-on:click='teste()', :kind="'unique'")
-        Icon(slot='icon', :name="['far','angry']")
-      Button.button(slot='footer', v-on:click='teste()', :label="'cancelar'", :kind="'right'")
-        Icon(slot='icon', :name="'flag'", class="'far-flag'")
+    FlyerBox.flyer-box
+      .header(slot='header')
+        Button.header-button(
+          v-on:click.native="loginChange('login')",
+          :label="'Logar-se'",
+          :kind="'left'",
+          :class="['header-button', { active: currentTab === 'login' }]")
+        Button.header-button(
+          v-on:click.native="loginChange('signup')",
+          :label="'Inscrever-se'",
+          :kind="'right'",
+          :class="[{ active: currentTab === 'signup' }]")
+      .body-title(slot='body-title', v-if="currentTab === 'login'")
+        | Bem vindo(a)
+      .body-title(slot='body-title', v-else)
+        | Cadastre-se
+      .body(slot='body', v-if="currentTab === 'login'")
+        form.form
+          Input.input(
+            type='text',
+            placeholder="Usuário*")
+          Input.input(
+            type='password',
+            placeholder="Senha*")
+      .body(slot='body', v-if="currentTab === 'signup'")
+        form.form
+          Input.input(
+            type='text',
+            placeholder="E-mail*")
+          Input.input(
+            type='text',
+            placeholder="Usuário*")
+          Input.input(
+            type='password',
+            placeholder="Senha*")
+      .footer(slot='footer')
+        Button(
+          v-on:click.native='signin()',
+          :label="'SEGUIR'")
+          Icon(slot='icon', :name="'sign-in-alt'")
 </template>
 
 <script>
-import Background from '@/components/Background'
-import LoginBox from '@/components/LoginBox'
-import Input from '@/components/Input'
-import Button from '@/components/Button'
-import Icon from '@/components/Icon'
 
 export default {
   name: 'Login',
-  components: {
-    LoginBox,
-    Background,
-    Input,
-    Button,
-    Icon
-  },
+  data: () => ({
+    currentTab: 'login'
+  }),
   methods: {
-    testo () {
-      alert('ss ')
+    loginChange (currentTab) {
+      this.currentTab = currentTab
+    },
+    signin () {
+      this.currentTab === 'signup'
+        ? this.currentTab = 'login'
+        : console.log('kk')
     }
   }
 }
@@ -42,25 +65,27 @@ export default {
 <style lang="scss" scoped>
 @import "@/assets/styles/style.scss";
 
-.login-box {
+.flyer-box {
   background-color: white;
-  height: 300px;
+  height: 350px;
   width: 300px;
 }
-.title {
+.login {
+  text-align: center;
+}
+.body-title {
   text-align: center;
   font-family: 'Titillium Web', sans-serif;
   font-size: 130%;
 }
-.form {
-/*   float: right;
-  left: -50%;
-  position: relative; */
-  text-align: center;
+.header {
+  display: block;
 }
-.input {
-/*   display: block;
-  left: 50%;
-  position: relative; */
+.header-button{
+  width: 40%;
+  height: 200%;
+}
+.header-button.active {
+    background-color: $active-tab-color;
 }
 </style>
