@@ -53,7 +53,7 @@ export default {
 .button:hover {
   background: rgba(216, 255, 255, 0.6);
 }
-.button:active {
+/* .button:focus {
   background-color:rgb(224, 53, 110);
-}
+} */
 </style>

@@ -3,17 +3,32 @@
     FlyerBox.flyer-box
       .header(slot='header')
         Button.header-button(
-          v-on:click='teste()',
+          v-on:click.native="loginChange('login')",
           :label="'Logar-se'",
-          :kind="'left'")
+          :kind="'left'",
+          :class="['header-button', { active: currentTab === 'login' }]")
         Button.header-button(
-          v-on:click='teste()',
+          v-on:click.native="loginChange('signup')",
           :label="'Inscrever-se'",
-          :kind="'right'")
-      .body-title(slot='body-title')
-        |Bem vindo(a)
-      .body(slot='body')
+          :kind="'right'",
+          :class="[{ active: currentTab === 'signup' }]")
+      .body-title(slot='body-title', v-if="currentTab === 'login'")
+        | Bem vindo(a)
+      .body-title(slot='body-title', v-else)
+        | Cadastre-se
+      .body(slot='body', v-if="currentTab === 'login'")
         form.form
+          Input.input(
+            type='text',
+            placeholder="Usuário*")
+          Input.input(
+            type='password',
+            placeholder="Senha*")
+      .body(slot='body', v-if="currentTab === 'signup'")
+        form.form
+          Input.input(
+            type='text',
+            placeholder="E-mail*")
           Input.input(
             type='text',
             placeholder="Usuário*")
@@ -22,8 +37,8 @@
             placeholder="Senha*")
       .footer(slot='footer')
         Button(
-          v-on:click='teste()',
-          :label="'ENTRAR'")
+          v-on:click.native='signin()',
+          :label="'SEGUIR'")
           Icon(slot='icon', :name="'sign-in-alt'")
 </template>
 
@@ -31,9 +46,17 @@
 
 export default {
   name: 'Login',
+  data: () => ({
+    currentTab: 'login'
+  }),
   methods: {
-    testo () {
-      alert('ss ')
+    loginChange (currentTab) {
+      this.currentTab = currentTab
+    },
+    signin () {
+      this.currentTab === 'signup'
+        ? this.currentTab = 'login'
+        : console.log('kk')
     }
   }
 }
@@ -62,15 +85,7 @@ export default {
   width: 40%;
   height: 200%;
 }
-.form {
-/*   float: right;
-  left: -50%;
-  position: relative; */
-  text-align: center;
-}
-.input {
-/*   display: block;
-  left: 50%;
-  position: relative; */
+.header-button.active {
+    background-color: $active-tab-color;
 }
 </style>
