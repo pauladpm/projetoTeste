@@ -38,25 +38,43 @@
       .footer(slot='footer')
         Button(
           v-on:click.native='signin()',
-          :label="'SEGUIR'")
+          :label="buttonLabel")
           Icon(slot='icon', :name="'sign-in-alt'")
+    BarChart.graphic
+    LineChart.graphic
 </template>
 
 <script>
+import BarChart from '@/components/BarChart'
+import LineChart from '@/components/LineChart'
 
 export default {
+  components: {
+    BarChart,
+    LineChart
+  },
   name: 'Login',
   data: () => ({
-    currentTab: 'login'
+    currentTab: 'login',
+    buttonLabel: 'ENTRAR'
   }),
   methods: {
     loginChange (currentTab) {
       this.currentTab = currentTab
     },
     signin () {
+      if (this.currentTab === 'signup') {
+        this.currentTab = 'login'
+      } else {
+        console.log('kk')
+      }
+    }
+  },
+  watch: {
+    currentTab () {
       this.currentTab === 'signup'
-        ? this.currentTab = 'login'
-        : console.log('kk')
+        ? this.buttonLabel = 'SEGUIR'
+        : this.buttonLabel = 'ENTRAR'
     }
   }
 }
@@ -67,6 +85,11 @@ export default {
 
 .flyer-box {
   background-color: white;
+  height: 350px;
+  width: 300px;
+}
+.graphic {
+  float: right;
   height: 350px;
   width: 300px;
 }
