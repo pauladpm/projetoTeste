@@ -38,7 +38,7 @@
       .footer(slot='footer')
         Button(
           v-on:click.native='signin()',
-          :label="'SEGUIR'")
+          :label="buttonLabel")
           Icon(slot='icon', :name="'sign-in-alt'")
 </template>
 
@@ -47,16 +47,26 @@
 export default {
   name: 'Login',
   data: () => ({
-    currentTab: 'login'
+    currentTab: 'login',
+    buttonLabel: 'ENTRAR'
   }),
   methods: {
     loginChange (currentTab) {
       this.currentTab = currentTab
     },
     signin () {
+      if (this.currentTab === 'signup') {
+        this.currentTab = 'login'
+      } else {
+        console.log('kk')
+      }
+    }
+  },
+  watch: {
+    currentTab () {
       this.currentTab === 'signup'
-        ? this.currentTab = 'login'
-        : console.log('kk')
+        ? this.buttonLabel = 'SEGUIR'
+        : this.buttonLabel = 'ENTRAR'
     }
   }
 }
