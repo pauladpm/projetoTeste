@@ -40,19 +40,11 @@
           v-on:click.native='signin()',
           :label="buttonLabel")
           Icon(slot='icon', :name="'sign-in-alt'")
-    BarChart.graphic
-    LineChart.graphic
 </template>
 
 <script>
-import BarChart from '@/components/BarChart'
-import LineChart from '@/components/LineChart'
 
 export default {
-  components: {
-    BarChart,
-    LineChart
-  },
   name: 'Login',
   data: () => ({
     currentTab: 'login',
@@ -85,11 +77,6 @@ export default {
 
 .flyer-box {
   background-color: white;
-  height: 350px;
-  width: 300px;
-}
-.graphic {
-  float: right;
   height: 350px;
   width: 300px;
 }
