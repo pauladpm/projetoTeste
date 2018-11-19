@@ -96,6 +96,6 @@ export default {
   height: 200%;
 }
 .header-button.active {
-    background-color: $active-tab-color;
+  background-color: $active-tab-color;
 }
 </style>
