@@ -9,6 +9,8 @@
               :label="'HOME '")
           .grid-three(slot='three')
             Icon(:name="'cocktail'")
+          .grid-four(slot='four')
+            Search.search
           .grid-five(slot='five')
             Button.button(
               v-on:click.native='signout()',
@@ -23,7 +25,7 @@ export default {
       console.log('saiu')
     },
     refresh () {
-      location.reload();
+      location.reload()
     }
   }
 }
